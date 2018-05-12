@@ -6,12 +6,10 @@ This project is a basic example of Video PlayBack in `ARKit` using a combination
 All the code is fully commented so the apps functionality should be clear to everyone.
 
 **Requirements:**
-
 This project was written in Swift 4, and at the time of writing uses Xcode 9.4 Beta.
 The project is setup for iPhone, and in Landscape Orientation.
 
 **Core Functionality:**
-
 The `VideoNodeSK` Class takes an array of `[String]` as the paths to the videos, and has controls for:
 
  - Play,
