@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C4E-D0-kl7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video View Controller-->
+        <scene sceneID="UtA-Lp-xhj">
+            <objects>
+                <viewController id="C4E-D0-kl7" customClass="SKVideoViewController" customModule="ARVideo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qEm-2q-baQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncy-zm-sdA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparing Device..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18M-NQ-ftp">
+                                <rect key="frame" x="0.0" y="642.5" width="375" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ncy-zm-sdA" firstAttribute="leading" secondItem="fuY-Sd-rCJ" secondAttribute="leading" id="CRi-3Q-Lm3"/>
+                            <constraint firstItem="18M-NQ-ftp" firstAttribute="trailing" secondItem="fuY-Sd-rCJ" secondAttribute="trailing" id="DJv-Yl-rNN"/>
+                            <constraint firstItem="Ncy-zm-sdA" firstAttribute="top" secondItem="qEm-2q-baQ" secondAttribute="top" id="R9H-Tj-EcB"/>
+                            <constraint firstItem="Ncy-zm-sdA" firstAttribute="trailing" secondItem="fuY-Sd-rCJ" secondAttribute="trailing" id="ZWE-o5-BKu"/>
+                            <constraint firstItem="Ncy-zm-sdA" firstAttribute="bottom" secondItem="fuY-Sd-rCJ" secondAttribute="bottom" id="dE2-ev-Aow"/>
+                            <constraint firstItem="18M-NQ-ftp" firstAttribute="leading" secondItem="fuY-Sd-rCJ" secondAttribute="leading" id="dLm-lA-0Yn"/>
+                            <constraint firstItem="fuY-Sd-rCJ" firstAttribute="bottom" secondItem="18M-NQ-ftp" secondAttribute="bottom" constant="10" id="jvJ-30-c4z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fuY-Sd-rCJ"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="augmentedRealityView" destination="Ncy-zm-sdA" id="diw-yM-qqk"/>
+                        <outlet property="statusLabel" destination="18M-NQ-ftp" id="CMc-WO-z6y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4H7-Nb-R5t" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="58"/>
+        </scene>
+    </scenes>
+</document>
