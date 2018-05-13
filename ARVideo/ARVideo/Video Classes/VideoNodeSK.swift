@@ -187,11 +187,13 @@ class VideoNodeSK: SCNNode{
         if !loopPlayBack{
             
             loopPlayBack = true
-            NotificationCenter.default.addObserver(self, selector: #selector(playVideo), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(playVideo),
+                                                   name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
             
         }else{
             
             loopPlayBack = false
+     
             NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
          
         }
@@ -204,7 +206,7 @@ class VideoNodeSK: SCNNode{
     func muteVideo(){
         
         if !videoMuted{
-            
+  
             videoMuted = true
             videoPlayer.volume = 0
             
@@ -251,18 +253,18 @@ class VideoNodeSK: SCNNode{
             if buttonToChange.name == "Mute"{
                 
                 if videoMuted{
-                    buttonToChange.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "muteOnButton")
-                }else{
                     buttonToChange.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "muteOffButton")
+                }else{
+                    buttonToChange.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "muteOnButton")
                 }
             }
             
             if buttonToChange.name == "Loop"{
                 
                 if loopPlayBack{
-                    buttonToChange.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "loopOnButton")
-                }else{
                     buttonToChange.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "loopOffButton")
+                }else{
+                    buttonToChange.geometry?.firstMaterial?.diffuse.contents = UIImage(named: "loopOnButton")
                 }
             }
             

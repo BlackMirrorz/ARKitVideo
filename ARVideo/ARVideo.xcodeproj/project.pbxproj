@@ -313,13 +313,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHKEQ8PRAX;
+				DEVELOPMENT_TEAM = YY5Y5N88U4;
 				INFOPLIST_FILE = ARVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.uk.blackmirrorz.ARVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.twinkl.ARVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -331,13 +331,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHKEQ8PRAX;
+				DEVELOPMENT_TEAM = YY5Y5N88U4;
 				INFOPLIST_FILE = ARVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.uk.blackmirrorz.ARVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.twinkl.ARVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
