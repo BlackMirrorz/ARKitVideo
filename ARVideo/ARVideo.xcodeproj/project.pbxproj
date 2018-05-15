@@ -79,6 +79,7 @@
 		AF3BAF2B205E0DA100CBC127 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AF57613720A8F17600EED03A /* Text.swift */,
 				AF3BAF2C205E0DE000CBC127 /* ARSettings.swift */,
 			);
 			path = Extensions;
@@ -96,7 +97,6 @@
 		AF49DBDC20A6530E00C6C09D /* Video Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AF57613720A8F17600EED03A /* Text.swift */,
 				AF3BAF1B205E0CF800CBC127 /* SKVideoViewController.swift */,
 				AF3BAF32205E199300CBC127 /* VideoNodeSK.swift */,
 			);
