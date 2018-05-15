@@ -61,6 +61,10 @@ The playback controls are managed using an `SCNHitTest` in the `touchesBegan` me
 
 Currently the `VideoNodeSK` can play videos from the main Bundle, or from remote URL's.
 
+The `VideoNodeSK` will also display the name of the current video, as well it's current playback time.
+
+The `VideoNodeSK` can be placed on either `horizontal` or `vertical` planes, as well as at the location of a detected `featurePoint`.
+
 Setting up the `VideoNodeSK` is as a simple as adding the following to your viewDidLoad:
 
     override func viewDidLoad() {
