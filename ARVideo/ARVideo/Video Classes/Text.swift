@@ -21,6 +21,10 @@ class Text: SCNNode{
 
     var textGeometry: SCNText!
     
+    //--------------------
+    //MARK: Initialization
+    //--------------------
+    
     /// Creates An SCNText Geometry
     ///
     /// - Parameters:
@@ -50,10 +54,15 @@ class Text: SCNNode{
         
         //6. Scale The Text So We Can Actually See It!
         self.scale = SCNVector3(0.01, 0.01 , 0.01)
-        
-       
+    
     }
     
+    
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    //-----------------------
+    //MARK: Pivot Positioning
+    //-----------------------
     
     /// Sets The Pivot Of The TextNode
     ///
@@ -87,10 +96,5 @@ class Text: SCNNode{
         }
         
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 
 }

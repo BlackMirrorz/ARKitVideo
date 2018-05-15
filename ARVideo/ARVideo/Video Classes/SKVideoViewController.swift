@@ -180,19 +180,19 @@ class SKVideoViewController: UIViewController {
     
     //Touch Detection For Controlling The Video Playback
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+
         //1. Get The Current Touch Location
         guard let touchLocation = touches.first?.location(in: self.augmentedRealityView),
-            
+
             //2. Perform An SCNHitTest To See If We Have Touch A Control Button
             let hitTest = self.augmentedRealityView.hitTest(touchLocation, options: nil).first,
-         
+
             //3. Check The Parent Node Is Our VideoNodeSK
             let videoNode = hitTest.node.parent as? VideoNodeSK,
-            
+
             //4. Check We Have Hit A Control Button
             let functionName = hitTest.node.name else { return }
-    
+
         //5. Perform The Video Playback Function
         switch functionName {
         case "Play":
@@ -208,7 +208,7 @@ class SKVideoViewController: UIViewController {
         default:
             return
         }
-        
+
     }
     
     //-------------------
