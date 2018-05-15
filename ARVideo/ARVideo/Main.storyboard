@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C4E-D0-kl7">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController id="C4E-D0-kl7" customClass="SKVideoViewController" customModule="ARVideo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qEm-2q-baQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncy-zm-sdA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </arscnView>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xj8-op-SCT">
-                                <rect key="frame" x="0.0" y="643" width="375" height="24"/>
+                                <rect key="frame" x="0.0" y="351" width="667" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparing Device..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18M-NQ-ftp">
-                                        <rect key="frame" x="134" y="5" width="107.5" height="14.5"/>
+                                        <rect key="frame" x="280" y="5.5" width="107.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -38,9 +38,49 @@
                                     <constraint firstItem="18M-NQ-ftp" firstAttribute="centerY" secondItem="Xj8-op-SCT" secondAttribute="centerY" id="RpK-Ek-KR4"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e1l-lI-slP" userLabel="Options Menu">
+                                <rect key="frame" x="143" y="315" width="381" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane Detection:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-DW-eyh">
+                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="j3W-dH-wTw">
+                                        <rect key="frame" x="103.5" y="0.0" width="69" height="29"/>
+                                        <segments>
+                                            <segment title="On"/>
+                                            <segment title="Off"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="setPlaneDetection:" destination="C4E-D0-kl7" eventType="valueChanged" id="ng0-He-IzN"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Feature Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgy-D9-e5J">
+                                        <rect key="frame" x="182.5" y="0.0" width="119.5" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="1ql-yP-HPK">
+                                        <rect key="frame" x="312" y="0.0" width="69" height="29"/>
+                                        <segments>
+                                            <segment title="On"/>
+                                            <segment title="Off"/>
+                                        </segments>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="setFeaturePoints:" destination="C4E-D0-kl7" eventType="valueChanged" id="gSp-pw-PsU"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="e1l-lI-slP" firstAttribute="bottom" secondItem="Xj8-op-SCT" secondAttribute="bottom" constant="-32" id="3Af-CA-e56"/>
                             <constraint firstItem="Ncy-zm-sdA" firstAttribute="leading" secondItem="fuY-Sd-rCJ" secondAttribute="leading" id="CRi-3Q-Lm3"/>
                             <constraint firstItem="Xj8-op-SCT" firstAttribute="trailing" secondItem="fuY-Sd-rCJ" secondAttribute="trailing" id="HrT-eY-bRz"/>
                             <constraint firstItem="Ncy-zm-sdA" firstAttribute="top" secondItem="qEm-2q-baQ" secondAttribute="top" id="R9H-Tj-EcB"/>
@@ -48,6 +88,7 @@
                             <constraint firstItem="Xj8-op-SCT" firstAttribute="bottom" secondItem="fuY-Sd-rCJ" secondAttribute="bottom" id="d5D-nR-Hby"/>
                             <constraint firstItem="Ncy-zm-sdA" firstAttribute="bottom" secondItem="fuY-Sd-rCJ" secondAttribute="bottom" id="dE2-ev-Aow"/>
                             <constraint firstItem="Xj8-op-SCT" firstAttribute="leading" secondItem="fuY-Sd-rCJ" secondAttribute="leading" id="fUb-VK-9dB"/>
+                            <constraint firstItem="e1l-lI-slP" firstAttribute="centerX" secondItem="qEm-2q-baQ" secondAttribute="centerX" id="iOp-2H-0t8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fuY-Sd-rCJ"/>
                     </view>
@@ -55,12 +96,16 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="augmentedRealityView" destination="Ncy-zm-sdA" id="diw-yM-qqk"/>
+                        <outlet property="festurePointController" destination="1ql-yP-HPK" id="Ryu-Jx-dTz"/>
+                        <outlet property="planeDetectionController" destination="j3W-dH-wTw" id="9ui-6U-RcQ"/>
+                        <outlet property="sessionLabelView" destination="Xj8-op-SCT" id="Jwg-vh-un6"/>
+                        <outlet property="settingsConstraint" destination="3Af-CA-e56" id="wAr-Tj-gVV"/>
                         <outlet property="statusLabel" destination="18M-NQ-ftp" id="CMc-WO-z6y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4H7-Nb-R5t" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="57.121439280359823"/>
+            <point key="canvasLocation" x="1531.7733990147783" y="56.799999999999997"/>
         </scene>
     </scenes>
 </document>

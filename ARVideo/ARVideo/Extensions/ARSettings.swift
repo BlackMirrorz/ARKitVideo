@@ -128,24 +128,21 @@ extension ARSession{
         //1. Return The Current Tracking State & Lighting Conditions
         switch frame.camera.trackingState {
             
-        case .normal:                                                   status = "Tracking Ready"
+        case .normal:                                                   status = ""
         case .notAvailable:                                             status = "Tracking Unavailable"
-        case .limited(let reason):
-            switch reason {
-            case .excessiveMotion:                                      status = "Please Slow Your Movement"
-            case .insufficientFeatures:                                 status = "Try To Point At A Flat Surface"
-            case .initializing:                                         status = "Initializing"
-            case .relocalizing:                                         status = "Relocalizing"
-                
-            }
-        }
+        case .limited(.excessiveMotion):                                status = "Please Slow Your Movement"
+        case .limited(.insufficientFeatures):                           status = "Try To Point At A Flat Surface"
+        case .limited(.initializing):                                   status = "Initializing"
+        case .limited(.relocalizing):                                   status = "Relocalizing"
         
+        }
+    
         guard let lightEstimate = frame.lightEstimate?.ambientIntensity else { return nil }
         
         if lightEstimate < 100 { status = "Lighting Is Too Dark" }
         
         return status
-        
+ 
     }
 
 }

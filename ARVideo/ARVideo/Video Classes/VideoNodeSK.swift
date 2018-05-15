@@ -10,13 +10,17 @@ import Foundation
 import SceneKit
 import AVFoundation
 import SpriteKit
+import ARKit
 
 /// SCNNode Sublcass To Display An AVPlayer Using SpriteKit
 class VideoNodeSK: SCNNode{
     
+    var videoPlayerHolder: SCNNode!
     var spriteKitScene: SKScene!
     var videoPlayerNode: SKVideoNode!
     var videoPlayer: AVPlayer!
+    var videoTitle: Text!
+    var playBackDuration: Text!
     
     var numberOfButtons: Int = 0
     var BUTTON_SIZE: CGFloat = 0.4
@@ -67,9 +71,8 @@ class VideoNodeSK: SCNNode{
         //3. Set The Number Of Buttons
         numberOfButtons = controlValues.count
        
-        
         //4. Create A Node To Holder The Video Player
-        let videoPlayerHolder = SCNNode()
+        videoPlayerHolder = SCNNode()
         
         //5. Create The Plane Geometry With The Passesd Width & Calculate The Height
         let playerHeight = width/1.5
@@ -115,14 +118,56 @@ class VideoNodeSK: SCNNode{
         
         //18. Create The Control Buttons
         createControlButtons()
+        
+        //19. Add The Data Labels
+        addVideoDataLabels()
     
+        //20. Add An Observer To Get The Playback Time Of Our Video
+        videoPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) { (CMTime) -> Void in
+           
+            if let currentItem = self.videoPlayer.currentItem {
+                let currentTime = currentItem.currentTime().seconds
+           
+                if let playBackTime = self.getHoursMinutesSecondsFrom(seconds: currentTime) {
+                    
+                    self.playBackDuration.textGeometry.string = "\(playBackTime.hours):\(playBackTime.minutes):\(playBackTime.seconds)"
+                 
+                }
+            }
+        }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    //------------------------------------------
+    //MARK: Scaling VideoNode For ARPlaneAnchors
+    //------------------------------------------
+    
+    /// Scales The VideoNode Depending Upon The Initial Size Of A Detected ARPlaneAnchor
+    ///
+    /// - Parameter anchor: ARPlaneAnchor
+    func scaleVideoPlayerFromAnchor(_ anchor: ARPlaneAnchor){
+
+        //1. Create An SCNPlane So We Can Get The Intiial Size Of The Anchor
+        let plane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
+        let planeNode = SCNNode(geometry: plane)
+        let sizeOfAnchor = planeNode.boundingBox
+   
+        //2. Get The Width Of The SCNPlane
+        let widthNeeded = sizeOfAnchor.max.x - sizeOfAnchor.min.x
+        
+        //3. Get The Current Width Of The Video Player
+        let currentWidthOfVideoPlayer = self.boundingBox.max.y - self.boundingBox.min.y
+        
+        //4. Get The Scale Factor
+        let scalar = widthNeeded/currentWidthOfVideoPlayer
+   
+        //5. Scale The VideoPlayer To Fit The Initial Size Of The Plane
+        self.scale = SCNVector3(scalar, scalar, scalar)
+        
     }
     
-    
+
     //---------------------
     //MARK: Control Buttons
     //---------------------
@@ -237,6 +282,7 @@ class VideoNodeSK: SCNNode{
         let newVideoItem = AVPlayerItem(url: url)
         videoPlayer.replaceCurrentItem(with: newVideoItem)
         playVideo()
+        changeVideoTitle()
         
     }
     
@@ -269,5 +315,64 @@ class VideoNodeSK: SCNNode{
             }
             
         }
+    }
+    
+    //-----------------------
+    //MARK: Video Information
+    //-----------------------
+    
+    /// Adds The Video Name & Playback Duration
+    func addVideoDataLabels(){
+        
+        //1. Check We Have A Valid Video Title
+        guard let title = URL(string: videoArray[currentVideoIndex])?.lastPathComponent else { return }
+        
+        //2. Get The Width & Height If The VideoPlayerHolder
+        let videoPlayerBoundingBox = videoPlayerHolder.boundingBox
+        let height = CGFloat(videoPlayerBoundingBox.max.y - videoPlayerBoundingBox.min.y)
+        let width = CGFloat(videoPlayerBoundingBox.max.x - videoPlayerBoundingBox.min.x)
+        
+        //Place The Title At The Top Right Of Our VideoPlayer
+        videoTitle = Text(text: title, colour: .white)
+        videoTitle.position = SCNVector3((width/2), (height/2) + 0.1 , 0)
+        videoTitle.setTextAlignment(.Right)
+        videoPlayerHolder.addChildNode(videoTitle)
+        
+        //Place The Duration Label At The Top Left Of Our VideoPlayer
+        playBackDuration = Text(text: "0:0:0", colour: .white)
+        playBackDuration.position = SCNVector3(-(width/2), (height/2) + 0.1, 0)
+        playBackDuration.setTextAlignment(.Left)
+        videoPlayerHolder.addChildNode(playBackDuration)
+        
+    }
+    
+    /// Changes The Title Of The Video
+    func changeVideoTitle(){
+        
+        //1. Check We Have A Valid Video Title
+        guard let title = URL(string: videoArray[currentVideoIndex])?.lastPathComponent else { return }
+        
+        //2. Set The Title
+        videoTitle.textGeometry.string = title
+        videoTitle.setTextAlignment(.Right)
+        
+        //3. Reset The PlayBack Duration Label
+        playBackDuration.textGeometry.string = "0:0:0"
+    }
+    
+    
+    /// Converts Seconds Into Hours, Minutes & Seconds
+    ///
+    /// - Parameter seconds: Double
+    /// - Returns:  (hours: Int, minutes: Int, seconds: Int)
+    func getHoursMinutesSecondsFrom(seconds: Double) -> (hours: Int, minutes: Int, seconds: Int)? {
+        
+        guard !seconds.isNaN || seconds.isInfinite else { return nil }
+        
+        let secs = Int(seconds)
+        let hours = secs / 3600
+        let minutes = (secs % 3600) / 60
+        let seconds = (secs % 3600) % 60
+        return (hours, minutes, seconds)
     }
 }

@@ -16,6 +16,7 @@
 		AF3BAF33205E199300CBC127 /* VideoNodeSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3BAF32205E199300CBC127 /* VideoNodeSK.swift */; };
 		AF3BAF39205E373B00CBC127 /* blackCat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AF3BAF38205E36A700CBC127 /* blackCat.mp4 */; };
 		AF48ABF2206487BC00DC3914 /* spaceVortex.mov in Resources */ = {isa = PBXBuildFile; fileRef = AF48ABF1206487BC00DC3914 /* spaceVortex.mov */; };
+		AF57613820A8F17600EED03A /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57613720A8F17600EED03A /* Text.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AF3BAF32205E199300CBC127 /* VideoNodeSK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoNodeSK.swift; sourceTree = "<group>"; };
 		AF3BAF38205E36A700CBC127 /* blackCat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = blackCat.mp4; sourceTree = "<group>"; };
 		AF48ABF1206487BC00DC3914 /* spaceVortex.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = spaceVortex.mov; sourceTree = "<group>"; };
+		AF57613720A8F17600EED03A /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,9 @@
 		AF49DBDC20A6530E00C6C09D /* Video Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AF3BAF32205E199300CBC127 /* VideoNodeSK.swift */,
+				AF57613720A8F17600EED03A /* Text.swift */,
 				AF3BAF1B205E0CF800CBC127 /* SKVideoViewController.swift */,
+				AF3BAF32205E199300CBC127 /* VideoNodeSK.swift */,
 			);
 			path = "Video Classes";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF3BAF1C205E0CF800CBC127 /* SKVideoViewController.swift in Sources */,
+				AF57613820A8F17600EED03A /* Text.swift in Sources */,
 				AF3BAF2D205E0DE000CBC127 /* ARSettings.swift in Sources */,
 				AF3BAF1A205E0CF800CBC127 /* AppDelegate.swift in Sources */,
 				AF3BAF33205E199300CBC127 /* VideoNodeSK.swift in Sources */,
