@@ -15,6 +15,20 @@ import ARKit
 
 extension SKVideoViewController: ARSCNViewDelegate{
     
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+        //1. Check An ARPlaneAnchor Has Been Detected
+        guard let _ = anchor as? ARPlaneAnchor else { return }
+       
+        //2. If We Have Selected Plane Detection & Havent Added the Video Show The Prompt
+        if placeOnPlane && !videoPlayerCreated{
+            
+            planeDetectedPrompt.hideViewAfter(6)
+            generateHepticFeedBack()
+
+        }
+    }
+    
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         
         DispatchQueue.main.async {
@@ -60,6 +74,7 @@ class SKVideoViewController: UIViewController {
     var placementType: ARHitTestResult.ResultType = .featurePoint
     
     //7. Settings Menu Items
+    @IBOutlet var planeDetectedPrompt: UIView!
     @IBOutlet var settingsMenu: UIView!
     @IBOutlet var settingsConstraint: NSLayoutConstraint!
     @IBOutlet var planeDetectionController: UISegmentedControl!
@@ -74,14 +89,16 @@ class SKVideoViewController: UIViewController {
         
         super.viewDidLoad()
         
-        //4. Add A UIPinchGestureRecognizer So We Can Scale Our Video Player
+        //1. Add A UIPinchGestureRecognizer So We Can Scale Our Video Player
         let scaleGesture = UIPinchGestureRecognizer(target: self, action: #selector(scaleVideoPlayer(_:)))
         self.view.addGestureRecognizer(scaleGesture)
         
+        //2. Add A Tap Gesture Recogizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(placeVideoNode(_:)))
         self.view.addGestureRecognizer(tapGesture)
         
-        UIApplication.shared.isIdleTimerDisabled = true
+        //3. Hide The PlaneDetection Prompt
+        planeDetectedPrompt.alpha = 0
         
     }
     
@@ -116,6 +133,7 @@ class SKVideoViewController: UIViewController {
         if let planeAnchor = hitTest.anchor as? ARPlaneAnchor {
             
             createVideoPlayerFrom(anchor: planeAnchor, position: nil)
+            UIApplication.shared.isIdleTimerDisabled = true
             return
             
         }else{
@@ -124,6 +142,7 @@ class SKVideoViewController: UIViewController {
             
             createVideoPlayerFrom(anchor: nil,
                                   position: SCNVector3(worldTransform.x, worldTransform.y, -4))
+            UIApplication.shared.isIdleTimerDisabled = true
             return
             
         }
@@ -162,6 +181,7 @@ class SKVideoViewController: UIViewController {
             //d. Scale The Video Player To Match The Initial Size Of The Detected Plane
             videoNode?.scaleVideoPlayerFromAnchor(validAnchor)
             videoPlayerCreated = true
+            videoNode?.addVideoDataLabels()
                 
             } else{
             
@@ -169,6 +189,7 @@ class SKVideoViewController: UIViewController {
             guard let validPosition = position else { return }
             self.augmentedRealityView.scene.rootNode.addChildNode(videoNode!)
             videoNode?.position = SCNVector3(validPosition.x, validPosition.y, validPosition.z)
+            videoNode?.addVideoDataLabels()
             videoPlayerCreated = true
         }
      
@@ -288,6 +309,9 @@ class SKVideoViewController: UIViewController {
         videoPlayerCreated = false
         videoNode?.removeFromParentNode()
         videoNode = nil
+        
+        //5. Disable The Idle Timer
+        UIApplication.shared.isIdleTimerDisabled = false
     }
     
     //---------------

@@ -116,25 +116,11 @@ class VideoNodeSK: SCNNode{
         videoPlayer.play()
         videoPlayer.volume = 1
         
+        
         //18. Create The Control Buttons
         createControlButtons()
         
-        //19. Add The Data Labels
-        addVideoDataLabels()
-    
-        //20. Add An Observer To Get The Playback Time Of Our Video
-        videoPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) { (CMTime) -> Void in
-           
-            if let currentItem = self.videoPlayer.currentItem {
-                let currentTime = currentItem.currentTime().seconds
-           
-                if let playBackTime = self.getHoursMinutesSecondsFrom(seconds: currentTime) {
-                    
-                    self.playBackDuration.textGeometry.string = "\(playBackTime.hours):\(playBackTime.minutes):\(playBackTime.seconds)"
-                 
-                }
-            }
-        }
+     
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -157,7 +143,7 @@ class VideoNodeSK: SCNNode{
         let widthNeeded = sizeOfAnchor.max.x - sizeOfAnchor.min.x
         
         //3. Get The Current Width Of The Video Player
-        let currentWidthOfVideoPlayer = self.boundingBox.max.y - self.boundingBox.min.y
+        let currentWidthOfVideoPlayer = self.boundingBox.max.x - self.boundingBox.min.x
         
         //4. Get The Scale Factor
         let scalar = widthNeeded/currentWidthOfVideoPlayer
@@ -321,6 +307,7 @@ class VideoNodeSK: SCNNode{
     //MARK: Video Information
     //-----------------------
     
+    
     /// Adds The Video Name & Playback Duration
     func addVideoDataLabels(){
         
@@ -343,6 +330,20 @@ class VideoNodeSK: SCNNode{
         playBackDuration.position = SCNVector3(-(width/2), (height/2) + 0.1, 0)
         playBackDuration.setTextAlignment(.Left)
         videoPlayerHolder.addChildNode(playBackDuration)
+        
+        //3. Add An Observer To Get The Playback Time Of Our Video
+        videoPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) { (CMTime) -> Void in
+            
+            if let currentItem = self.videoPlayer.currentItem {
+                let currentTime = currentItem.currentTime().seconds
+                
+                if let playBackTime = self.getHoursMinutesSecondsFrom(seconds: currentTime) {
+                    
+                    self.playBackDuration.textGeometry.string = "\(playBackTime.hours):\(playBackTime.minutes):\(playBackTime.seconds)"
+                    
+                }
+            }
+        }
         
     }
     

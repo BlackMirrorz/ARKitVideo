@@ -17,6 +17,7 @@
 		AF3BAF39205E373B00CBC127 /* blackCat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AF3BAF38205E36A700CBC127 /* blackCat.mp4 */; };
 		AF48ABF2206487BC00DC3914 /* spaceVortex.mov in Resources */ = {isa = PBXBuildFile; fileRef = AF48ABF1206487BC00DC3914 /* spaceVortex.mov */; };
 		AF57613820A8F17600EED03A /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57613720A8F17600EED03A /* Text.swift */; };
+		AFF061EB20ABD64A00ECC966 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AF3BAF38205E36A700CBC127 /* blackCat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = blackCat.mp4; sourceTree = "<group>"; };
 		AF48ABF1206487BC00DC3914 /* spaceVortex.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = spaceVortex.mov; sourceTree = "<group>"; };
 		AF57613720A8F17600EED03A /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				AF57613720A8F17600EED03A /* Text.swift */,
 				AF3BAF2C205E0DE000CBC127 /* ARSettings.swift */,
+				AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				AF57613820A8F17600EED03A /* Text.swift in Sources */,
 				AF3BAF2D205E0DE000CBC127 /* ARSettings.swift in Sources */,
 				AF3BAF1A205E0CF800CBC127 /* AppDelegate.swift in Sources */,
+				AFF061EB20ABD64A00ECC966 /* UIViewController+Extensions.swift in Sources */,
 				AF3BAF33205E199300CBC127 /* VideoNodeSK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +321,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY5Y5N88U4;
+				DEVELOPMENT_TEAM = DHKEQ8PRAX;
 				INFOPLIST_FILE = ARVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -335,7 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY5Y5N88U4;
+				DEVELOPMENT_TEAM = DHKEQ8PRAX;
 				INFOPLIST_FILE = ARVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
