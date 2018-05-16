@@ -210,7 +210,7 @@ class SKVideoViewController: UIViewController {
 
             //3. Check The Parent Node Is Our VideoNodeSK
             let videoNode = hitTest.node.parent as? VideoNodeSK,
-
+            
             //4. Check We Have Hit A Control Button
             let functionName = hitTest.node.name else { return }
 
@@ -307,7 +307,7 @@ class SKVideoViewController: UIViewController {
         //4. Run The Session & Reset The Video Node
         augmentedRealitySession.run(configuration, options: runOptions(.ResetAndRemove))
         videoPlayerCreated = false
-        videoNode?.removeFromParentNode()
+        videoNode?.cleanNode()
         videoNode = nil
         
         //5. Disable The Idle Timer

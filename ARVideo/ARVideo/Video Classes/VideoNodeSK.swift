@@ -37,6 +37,7 @@ class VideoNodeSK: SCNNode{
     var loopPlayBack = false
     var videoMuted = false
 
+    var timeObserver: Any!
     var currentVideoIndex: Int = 0
     var videoArray = [String]()
     
@@ -120,11 +121,23 @@ class VideoNodeSK: SCNNode{
         //18. Create The Control Buttons
         createControlButtons()
         
-     
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
+    func cleanNode(){
+        
+        //1. Pause The Video Player & Remove Observers
+        videoPlayer.pause()
+        videoPlayer.removeTimeObserver(timeObserver)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        
+        //2. Clean All Child & Parent Nodes
+        if let parentNodes = self.parent?.childNodes{ parentNodes.forEach { $0.geometry = nil; $0.removeFromParentNode() } }
+
+        for node in self.childNodes{ node.geometry = nil; node.removeFromParentNode() }
+       
+    }
     //------------------------------------------
     //MARK: Scaling VideoNode For ARPlaneAnchors
     //------------------------------------------
@@ -332,7 +345,7 @@ class VideoNodeSK: SCNNode{
         videoPlayerHolder.addChildNode(playBackDuration)
         
         //3. Add An Observer To Get The Playback Time Of Our Video
-        videoPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) { (CMTime) -> Void in
+        timeObserver = videoPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) { (CMTime) -> Void in
             
             if let currentItem = self.videoPlayer.currentItem {
                 let currentTime = currentItem.currentTime().seconds
