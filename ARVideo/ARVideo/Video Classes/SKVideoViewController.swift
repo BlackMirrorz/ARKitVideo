@@ -198,9 +198,7 @@ class SKVideoViewController: UIViewController {
     func addDataToVideoNode(){
         
         videoNode?.addVideoDataLabels()
-        videoPlayerCreated = true
-        self.augmentedRealityView.rippleView()
-        
+        videoPlayerCreated = true        
     }
 
     //----------------------------------------
@@ -300,7 +298,7 @@ class SKVideoViewController: UIViewController {
         setupSessionPreferences()
     }
     
-    
+
     /// Runs The ARSessionConfiguration Based On The Preferences Chosen
     func setupSessionPreferences(){
         
@@ -342,6 +340,17 @@ class SKVideoViewController: UIViewController {
         augmentedRealityView.session = augmentedRealitySession
         augmentedRealityView.delegate = self
         
+        setupSessionPreferences()
+        
+    }
+    
+    /// Resets The Session
+    @IBAction func fullReset(){
+        
+        showFeaturePoints = false
+        placeOnPlane = false
+        planeDetectionController.selectedSegmentIndex = 1
+        festurePointController.selectedSegmentIndex = 1
         setupSessionPreferences()
         
     }

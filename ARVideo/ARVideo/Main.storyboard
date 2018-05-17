@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14111" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C4E-D0-kl7">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController id="C4E-D0-kl7" customClass="SKVideoViewController" customModule="ARVideo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qEm-2q-baQ">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ncy-zm-sdA">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </arscnView>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xj8-op-SCT">
-                                <rect key="frame" x="0.0" y="351" width="667" height="24"/>
+                                <rect key="frame" x="0.0" y="390" width="736" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparing Device..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18M-NQ-ftp">
-                                        <rect key="frame" x="280" y="5.5" width="107.5" height="14.5"/>
+                                        <rect key="frame" x="314.66666666666669" y="5.6666666666666865" width="107.33333333333331" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -39,16 +39,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e1l-lI-slP" userLabel="Options Menu">
-                                <rect key="frame" x="143" y="315" width="381" height="28"/>
+                                <rect key="frame" x="177.66666666666666" y="354" width="380.66666666666674" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane Detection:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-DW-eyh">
-                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="j3W-dH-wTw">
-                                        <rect key="frame" x="103.5" y="0.0" width="69" height="29"/>
+                                        <rect key="frame" x="103.33333333333334" y="0.0" width="69" height="29"/>
                                         <segments>
                                             <segment title="On"/>
                                             <segment title="Off"/>
@@ -59,13 +59,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Feature Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgy-D9-e5J">
-                                        <rect key="frame" x="182.5" y="0.0" width="119.5" height="28"/>
+                                        <rect key="frame" x="182.33333333333334" y="0.0" width="119.33333333333334" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="1ql-yP-HPK">
-                                        <rect key="frame" x="312" y="0.0" width="69" height="29"/>
+                                        <rect key="frame" x="311.66666666666663" y="0.0" width="69" height="29"/>
                                         <segments>
                                             <segment title="On"/>
                                             <segment title="Off"/>
@@ -78,7 +78,7 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oey-YI-gEm">
-                                <rect key="frame" x="240" y="123.5" width="187" height="128"/>
+                                <rect key="frame" x="274.66666666666669" y="143" width="187" height="128"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQC-oG-ymg">
                                         <rect key="frame" x="0.0" y="84" width="187" height="44"/>
@@ -101,11 +101,23 @@ Tap To Place The VideoPlayer!</string>
                                     <constraint firstAttribute="height" constant="128" id="ywK-1W-VW9"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgS-9D-QiZ">
+                                <rect key="frame" x="701" y="10" width="25" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5Jk-1Z-pY8"/>
+                                    <constraint firstAttribute="width" constant="25" id="5vm-6r-b1N"/>
+                                </constraints>
+                                <state key="normal" image="resetButton"/>
+                                <connections>
+                                    <action selector="fullReset" destination="C4E-D0-kl7" eventType="touchUpInside" id="6hy-Z0-L93"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e1l-lI-slP" firstAttribute="bottom" secondItem="Xj8-op-SCT" secondAttribute="bottom" constant="-32" id="3Af-CA-e56"/>
                             <constraint firstItem="Ncy-zm-sdA" firstAttribute="leading" secondItem="fuY-Sd-rCJ" secondAttribute="leading" id="CRi-3Q-Lm3"/>
+                            <constraint firstItem="fuY-Sd-rCJ" firstAttribute="trailing" secondItem="FgS-9D-QiZ" secondAttribute="trailing" constant="10" id="GRR-rA-L7z"/>
                             <constraint firstItem="Xj8-op-SCT" firstAttribute="trailing" secondItem="fuY-Sd-rCJ" secondAttribute="trailing" id="HrT-eY-bRz"/>
                             <constraint firstItem="Ncy-zm-sdA" firstAttribute="top" secondItem="qEm-2q-baQ" secondAttribute="top" id="R9H-Tj-EcB"/>
                             <constraint firstItem="oey-YI-gEm" firstAttribute="centerY" secondItem="qEm-2q-baQ" secondAttribute="centerY" id="ZAf-r2-1k4"/>
@@ -115,6 +127,7 @@ Tap To Place The VideoPlayer!</string>
                             <constraint firstItem="Xj8-op-SCT" firstAttribute="leading" secondItem="fuY-Sd-rCJ" secondAttribute="leading" id="fUb-VK-9dB"/>
                             <constraint firstItem="e1l-lI-slP" firstAttribute="centerX" secondItem="qEm-2q-baQ" secondAttribute="centerX" id="iOp-2H-0t8"/>
                             <constraint firstItem="oey-YI-gEm" firstAttribute="centerX" secondItem="qEm-2q-baQ" secondAttribute="centerX" id="iPU-eL-a0L"/>
+                            <constraint firstItem="FgS-9D-QiZ" firstAttribute="top" secondItem="fuY-Sd-rCJ" secondAttribute="top" constant="10" id="k6U-5i-R9B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fuY-Sd-rCJ"/>
                     </view>
@@ -137,5 +150,6 @@ Tap To Place The VideoPlayer!</string>
     </scenes>
     <resources>
         <image name="edIcon" width="228" height="258"/>
+        <image name="resetButton" width="60" height="69"/>
     </resources>
 </document>
