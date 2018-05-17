@@ -23,11 +23,14 @@ extension SKVideoViewController: ARSCNViewDelegate{
         //2. If We Have Selected Plane Detection & Havent Added the Video Show The Prompt
         if placeOnPlane && !videoPlayerCreated{
             
+            print("Allow Placing On Plane")
             planeDetectedPrompt.hideViewAfter(6)
             generateHepticFeedBack()
 
         }
     }
+    
+    
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         
@@ -38,14 +41,11 @@ extension SKVideoViewController: ARSCNViewDelegate{
             
             //2. If We Have Nothing To Report Then Hide The Status View & Shift The Settings Menu
             if let validSessionText = self.statusLabel.text{
+                
                 self.sessionLabelView.isHidden = validSessionText.isEmpty
             }
         
-            if self.sessionLabelView.isHidden {
-                 self.settingsConstraint.constant = -8
-            }else{
-                 self.settingsConstraint.constant = -32
-            }
+            if self.sessionLabelView.isHidden { self.settingsConstraint.constant = -8 } else { self.settingsConstraint.constant = -32 }
         }
     }
 }
@@ -125,7 +125,7 @@ class SKVideoViewController: UIViewController {
         let currentTouchLocation = gesture.location(in: self.augmentedRealityView)
         
         //2. Perform An ARHitTest To Search For Any Existing Planes Or Feature Points
-        if placeOnPlane { placementType = .existingPlane }
+        if placeOnPlane { placementType = .existingPlane } else { placementType = .featurePoint }
         
         guard  let hitTest = self.augmentedRealityView.hitTest(currentTouchLocation, types: placementType ).first else { return }
         
@@ -180,8 +180,7 @@ class SKVideoViewController: UIViewController {
             
             //d. Scale The Video Player To Match The Initial Size Of The Detected Plane
             videoNode?.scaleVideoPlayerFromAnchor(validAnchor)
-            videoPlayerCreated = true
-            videoNode?.addVideoDataLabels()
+            addDataToVideoNode()
                 
             } else{
             
@@ -189,10 +188,19 @@ class SKVideoViewController: UIViewController {
             guard let validPosition = position else { return }
             self.augmentedRealityView.scene.rootNode.addChildNode(videoNode!)
             videoNode?.position = SCNVector3(validPosition.x, validPosition.y, validPosition.z)
-            videoNode?.addVideoDataLabels()
-            videoPlayerCreated = true
+            addDataToVideoNode()
         }
      
+    }
+    
+    
+    /// Adds The Video Labels To The VideoNodeSK
+    func addDataToVideoNode(){
+        
+        videoNode?.addVideoDataLabels()
+        videoPlayerCreated = true
+        self.augmentedRealityView.rippleView()
+        
     }
 
     //----------------------------------------
@@ -264,8 +272,11 @@ class SKVideoViewController: UIViewController {
     @IBAction func setPlaneDetection(_ controller: UISegmentedControl){
         
         if controller.selectedSegmentIndex == 1{
+            
             placeOnPlane = false
+            
         }else{
+            
             placeOnPlane = true
         }
         
@@ -278,8 +289,11 @@ class SKVideoViewController: UIViewController {
     @IBAction func setFeaturePoints(_ controller: UISegmentedControl){
         
         if controller.selectedSegmentIndex == 1{
+            
             showFeaturePoints = false
+            
         }else{
+            
             showFeaturePoints = true
         }
         
@@ -292,13 +306,16 @@ class SKVideoViewController: UIViewController {
         
         if placeOnPlane{
             configuration.planeDetection = [planeDetection(.Both)]
+            
         }else{
+            
             configuration.planeDetection = [planeDetection(.None)]
         }
         
         if showFeaturePoints{
             
             augmentedRealityView.debugOptions = debug(.FeaturePoints)
+            
         }else{
             
             augmentedRealityView.debugOptions = debug(.None)
@@ -309,7 +326,7 @@ class SKVideoViewController: UIViewController {
         videoPlayerCreated = false
         videoNode?.cleanNode()
         videoNode = nil
-        
+    
         //5. Disable The Idle Timer
         UIApplication.shared.isIdleTimerDisabled = false
     }

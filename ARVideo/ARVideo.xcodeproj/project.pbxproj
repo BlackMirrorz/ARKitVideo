@@ -17,6 +17,7 @@
 		AF3BAF39205E373B00CBC127 /* blackCat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AF3BAF38205E36A700CBC127 /* blackCat.mp4 */; };
 		AF48ABF2206487BC00DC3914 /* spaceVortex.mov in Resources */ = {isa = PBXBuildFile; fileRef = AF48ABF1206487BC00DC3914 /* spaceVortex.mov */; };
 		AF57613820A8F17600EED03A /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57613720A8F17600EED03A /* Text.swift */; };
+		AF9B656A20AE43490076666A /* ARSCNView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9B656920AE43490076666A /* ARSCNView+Extensions.swift */; };
 		AFF061EB20ABD64A00ECC966 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */; };
 		AFF0620F20ABE00B00ECC966 /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0620E20ABE00B00ECC966 /* SCNNode+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		AF3BAF38205E36A700CBC127 /* blackCat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = blackCat.mp4; sourceTree = "<group>"; };
 		AF48ABF1206487BC00DC3914 /* spaceVortex.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = spaceVortex.mov; sourceTree = "<group>"; };
 		AF57613720A8F17600EED03A /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		AF9B656920AE43490076666A /* ARSCNView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSCNView+Extensions.swift"; sourceTree = "<group>"; };
 		AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		AFF0620E20ABE00B00ECC966 /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 				AF3BAF2C205E0DE000CBC127 /* ARSettings.swift */,
 				AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */,
 				AFF0620E20ABE00B00ECC966 /* SCNNode+Extensions.swift */,
+				AF9B656920AE43490076666A /* ARSCNView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				AF3BAF1C205E0CF800CBC127 /* SKVideoViewController.swift in Sources */,
 				AF57613820A8F17600EED03A /* Text.swift in Sources */,
+				AF9B656A20AE43490076666A /* ARSCNView+Extensions.swift in Sources */,
 				AF3BAF2D205E0DE000CBC127 /* ARSettings.swift in Sources */,
 				AF3BAF1A205E0CF800CBC127 /* AppDelegate.swift in Sources */,
 				AFF061EB20ABD64A00ECC966 /* UIViewController+Extensions.swift in Sources */,
@@ -325,13 +329,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY5Y5N88U4;
+				DEVELOPMENT_TEAM = DHKEQ8PRAX;
 				INFOPLIST_FILE = ARVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.uk.twinklARVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.blackMirrorz.ARVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -343,13 +347,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YY5Y5N88U4;
+				DEVELOPMENT_TEAM = DHKEQ8PRAX;
 				INFOPLIST_FILE = ARVideo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.uk.twinklARVideo;
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.blackMirrorz.ARVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
