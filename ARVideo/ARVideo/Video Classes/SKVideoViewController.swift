@@ -79,6 +79,7 @@ class SKVideoViewController: UIViewController {
     
     //6. Variables To Determine If We Are Placing Our VideoNode On Any Detected Planes Or Feature Points
     var placeOnPlane = false
+    var showFeaturePoints = false
     var placementType: ARHitTestResult.ResultType = .featurePoint
     
     //7. Settings Menu Items
@@ -88,7 +89,7 @@ class SKVideoViewController: UIViewController {
     @IBOutlet var settingsConstraint: NSLayoutConstraint!
     @IBOutlet var planeDetectionController: UISegmentedControl!
     @IBOutlet var festurePointController: UISegmentedControl!
-    var showFeaturePoints = false;
+    
     
     //--------------------
     //MARK: View LifeCycle

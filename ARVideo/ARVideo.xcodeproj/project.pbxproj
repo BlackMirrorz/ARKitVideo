@@ -19,7 +19,6 @@
 		AF57613820A8F17600EED03A /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57613720A8F17600EED03A /* Text.swift */; };
 		AF9B656A20AE43490076666A /* ARSCNView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9B656920AE43490076666A /* ARSCNView+Extensions.swift */; };
 		AFF061EB20ABD64A00ECC966 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */; };
-		AFF0620F20ABE00B00ECC966 /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF0620E20ABE00B00ECC966 /* SCNNode+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		AF57613720A8F17600EED03A /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		AF9B656920AE43490076666A /* ARSCNView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSCNView+Extensions.swift"; sourceTree = "<group>"; };
 		AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		AFF0620E20ABE00B00ECC966 /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,6 @@
 				AF57613720A8F17600EED03A /* Text.swift */,
 				AF3BAF2C205E0DE000CBC127 /* ARSettings.swift */,
 				AFF061EA20ABD64A00ECC966 /* UIViewController+Extensions.swift */,
-				AFF0620E20ABE00B00ECC966 /* SCNNode+Extensions.swift */,
 				AF9B656920AE43490076666A /* ARSCNView+Extensions.swift */,
 			);
 			path = Extensions;
@@ -191,7 +188,6 @@
 				AF3BAF2D205E0DE000CBC127 /* ARSettings.swift in Sources */,
 				AF3BAF1A205E0CF800CBC127 /* AppDelegate.swift in Sources */,
 				AFF061EB20ABD64A00ECC966 /* UIViewController+Extensions.swift in Sources */,
-				AFF0620F20ABE00B00ECC966 /* SCNNode+Extensions.swift in Sources */,
 				AF3BAF33205E199300CBC127 /* VideoNodeSK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
