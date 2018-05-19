@@ -18,18 +18,26 @@ extension SKVideoViewController: ARSCNViewDelegate{
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
         //1. Check An ARPlaneAnchor Has Been Detected
-        guard let _ = anchor as? ARPlaneAnchor else { return }
+        guard let validAnchor = anchor as? ARPlaneAnchor else { return }
        
         //2. If We Have Selected Plane Detection & Havent Added the Video Show The Prompt
         if placeOnPlane && !videoPlayerCreated{
-            
-            print("Allow Placing On Plane")
-            planeDetectedPrompt.hideViewAfter(6)
+         
+            DispatchQueue.main.async {
+               
+                if validAnchor.alignment == .horizontal{
+                    self.planeDetectedPromptTextView.text = "Horizontal Surface Detected \nTap To Place The VideoPlayer!"
+                }else{
+                    self.planeDetectedPromptTextView.text = "Vertical Surface Detected \nTap To Place The VideoPlayer!"
+                }
+                
+            }
+          
+            planeDetectedPrompt.hideViewAfter(4)
             generateHepticFeedBack()
 
         }
     }
-    
     
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -75,6 +83,7 @@ class SKVideoViewController: UIViewController {
     
     //7. Settings Menu Items
     @IBOutlet var planeDetectedPrompt: UIView!
+    @IBOutlet var planeDetectedPromptTextView: UITextView!
     @IBOutlet var settingsMenu: UIView!
     @IBOutlet var settingsConstraint: NSLayoutConstraint!
     @IBOutlet var planeDetectionController: UISegmentedControl!
@@ -198,7 +207,7 @@ class SKVideoViewController: UIViewController {
     func addDataToVideoNode(){
         
         videoNode?.addVideoDataLabels()
-        videoPlayerCreated = true        
+        videoPlayerCreated = true
     }
 
     //----------------------------------------

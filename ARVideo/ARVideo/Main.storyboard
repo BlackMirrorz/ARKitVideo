@@ -137,6 +137,7 @@ Tap To Place The VideoPlayer!</string>
                         <outlet property="augmentedRealityView" destination="Ncy-zm-sdA" id="diw-yM-qqk"/>
                         <outlet property="festurePointController" destination="1ql-yP-HPK" id="Ryu-Jx-dTz"/>
                         <outlet property="planeDetectedPrompt" destination="oey-YI-gEm" id="D0p-E4-fae"/>
+                        <outlet property="planeDetectedPromptTextView" destination="fQC-oG-ymg" id="A5L-cr-tWW"/>
                         <outlet property="planeDetectionController" destination="j3W-dH-wTw" id="9ui-6U-RcQ"/>
                         <outlet property="sessionLabelView" destination="Xj8-op-SCT" id="Jwg-vh-un6"/>
                         <outlet property="settingsConstraint" destination="3Af-CA-e56" id="wAr-Tj-gVV"/>
