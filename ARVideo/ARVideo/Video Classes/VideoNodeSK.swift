@@ -350,17 +350,12 @@ class VideoNodeSK: SCNNode{
             if let currentItem = self.videoPlayer.currentItem {
                 let currentTime = currentItem.currentTime().seconds
                 
-                if let playBackTime = self.getHoursMinutesSecondsFrom(seconds: currentTime) {
-                    
-                    self.playBackDuration.textGeometry.string = "\(playBackTime.hours):\(playBackTime.minutes):\(playBackTime.seconds)"
-                    
-                }
+                guard !currentTime.isNaN || currentTime.isInfinite else { return }
+                self.playBackDuration.textGeometry.string = self.getFormattedDuration(currentTime)
             }
         }
         
     }
-    
-    
     
     /// Changes The Title Of The Video
     func changeVideoTitle(){
@@ -376,6 +371,9 @@ class VideoNodeSK: SCNNode{
         playBackDuration.textGeometry.string = "0:0:0"
     }
     
+    //---------------------
+    //MARK: Time Formatting
+    //---------------------
     
     /// Converts Seconds Into Hours, Minutes & Seconds
     ///
@@ -390,5 +388,49 @@ class VideoNodeSK: SCNNode{
         let minutes = (secs % 3600) / 60
         let seconds = (secs % 3600) % 60
         return (hours, minutes, seconds)
+    }
+    
+    /// Gets The Hours Minutes And Seconds From The Inputted Number Of Sceonds
+    ///
+    /// - Parameters:
+    ///   - seconds: Int
+    ///   - completion: @escaping (_ hours: Int, _ minutes: Int, _ seconds: Int)
+    func hoursMinutesSecondsFrom(seconds: Int, completion: @escaping (_ hours: Int, _ minutes: Int, _ seconds: Int)->()) {
+        
+        completion(seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+        
+    }
+    
+    
+    /// Returns A Formatted String Based On The Number Of Seconds
+    ///
+    /// - Parameter seconds: Int
+    /// - Returns: String
+    func getStringFrom(seconds: Int) -> String {
+        
+        return seconds < 10 ? "0\(seconds)" : "\(seconds)"
+    }
+    
+    
+    /// Returns Hours Minutes & Seconds Formatted In A String
+    ///
+    /// - Parameter videoTime: Float64
+    /// - Returns: String
+    func getFormattedDuration(_ videoTime: Float64) -> String {
+        
+        let seconds = Int(videoTime)
+        var output: String!
+        
+        hoursMinutesSecondsFrom(seconds: seconds) { hours, minutes, seconds in
+            
+            let hours = self.getStringFrom(seconds: hours)
+            let minutes = self.getStringFrom(seconds: minutes)
+            let seconds = self.getStringFrom(seconds: seconds)
+            
+            output = "\(hours):\(minutes):\(seconds)"
+            
+        }
+        
+        return output
     }
 }
