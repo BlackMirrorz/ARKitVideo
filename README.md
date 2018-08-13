@@ -1,5 +1,5 @@
 
-# ARVideo
+# ARKitVideo
 
 This project is a basic example of Video PlayBack in `ARKit` using a combination of `SKScene`, `SKVideoNode`, and `AVPlayer`.
 
