@@ -17,9 +17,14 @@ extension ARSCNView{
         
         let animation = CATransition()
         animation.duration = 1.75
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = "rippleEffect"
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = convertToCATransitionType("rippleEffect")
         self.layer.add(animation, forKey: nil)
        
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCATransitionType(_ input: String) -> CATransitionType {
+	return CATransitionType(rawValue: input)
 }

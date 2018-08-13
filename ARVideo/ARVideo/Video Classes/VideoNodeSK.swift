@@ -212,7 +212,7 @@ class VideoNodeSK: SCNNode{
     /// Plays The Current Video Item
     @objc func playVideo(){
         
-        self.videoPlayer.seek(to: kCMTimeZero)
+        self.videoPlayer.seek(to: CMTime.zero)
         self.videoPlayer.play()
     }
     
@@ -220,7 +220,7 @@ class VideoNodeSK: SCNNode{
     /// Stops The Current Video Item
     func stopVideo(){
         
-        self.videoPlayer.seek(to: kCMTimeZero)
+        self.videoPlayer.seek(to: CMTime.zero)
         self.videoPlayer.pause()
         
     }
@@ -345,7 +345,7 @@ class VideoNodeSK: SCNNode{
         videoPlayerHolder.addChildNode(playBackDuration)
         
         //3. Add An Observer To Get The Playback Time Of Our Video
-        timeObserver = videoPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main) { (CMTime) -> Void in
+        timeObserver = videoPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main) { (CMTime) -> Void in
             
             if let currentItem = self.videoPlayer.currentItem {
                 let currentTime = currentItem.currentTime().seconds
